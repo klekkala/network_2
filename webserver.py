@@ -71,9 +71,16 @@ def rd_getrdpeer(p, obj):
     #3 a) If response is OK <URL>, the open the URL
     #3 b) If response is 404, then show that content is  not available
     #### You may factor out things from here and rd_getrd() function and form a separate sub-routine
-	return "Unimplemented"
 
 
+                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                 s.connect(('localhost'), p)
+                 re = 'GETRD '+str(len(obj))+' ' + str(obj)
+                 s.sendall(re)
+                 back = s.recv(4096)
+                 s.close()
+                 print '***Response from the Routing dameon' + str(back)
+                 return ResponseCheck(back)
 
 if __name__ == '__main__':
 	if (len(sys.argv) > 1):
