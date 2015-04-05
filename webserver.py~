@@ -14,7 +14,6 @@ def ResponseCheck(back):
 	if back.startswith('OK'):
 		tokens = back.split(' ')
 		f = urllib.urlopen(tokens[2])
-
 @app.route('/')
 def index():
 	return redirect(url_for('static', filename='index.html'))
