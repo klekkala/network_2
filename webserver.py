@@ -67,10 +67,8 @@ def rd_addfile(p):
                  f.close()
                  s.socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                  s.connect(('localhost', p))
-                 re = 'ADDFILE ' + str(len(obj))+' ' +str(obj)+' '+str(len(os.path.join(UPLOAD_FOLDER, HASH)))
-
-
-    return "Unimplemented"
+                 re = 'ADDFILE ' + str(len(obj))+' ' +str(obj)+' '+str(len(os.path.join(UPLOAD_FOLDER, hashName))) + ' ' + str(os.path)
+                 print 'request: '+ str(re)
 
 
 @app.route('/rd/<int:p>/<obj>', methods=["GET"])
