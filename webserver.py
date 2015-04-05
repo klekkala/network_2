@@ -53,7 +53,11 @@ def rd_addfile(p):
 	#4. Connect to the routing daemon on port p
 	#5. Do ADDFILE <object-name> <relative-path>
 	#6. Based on the response from the routing daemon display whether the object has been successfully uploaded/added or not
-	return "Unimplemented"
+
+    obj = request.form['object']
+    f = request.files['uploadFile']
+    print f.stream.read()
+    return "Unimplemented"
 
 
 @app.route('/rd/<int:p>/<obj>', methods=["GET"])
