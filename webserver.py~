@@ -9,11 +9,6 @@ import socket
 
 app = Flask(__name__)
 
-
-def ResponseCheck(back):
-	if back.startswith('OK'):
-		tokens = back.split(' ')
-		f = urllib.urlopen(tokens[2])
 @app.route('/')
 def index():
 	return redirect(url_for('static', filename='index.html'))
@@ -27,17 +22,7 @@ def rd_getrd(p):
 	#4 a) If response is OK <URL>, the open the URL
 	#4 b) If response is 404, then show that content is not available
     #### You may factor out things from here and rd_getrd() function and form a separate sub-routine
-
-
-	obj = request.args['object']
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect(('localhost',p))
-	re = 'GETRD '+str(len(obj))+' '+str(obj)
-	s.sendall(re)
-	back = s.recv(4096)
-	print 'Response from the Routing dameon: \n' + str(back)
-	s.close()
-	return ResponseCheck(back)
+	return "Unimplemented"
 
 
 @app.route('/rd/addfile/<int:p>', methods=["POST"])
