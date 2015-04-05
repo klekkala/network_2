@@ -14,10 +14,14 @@ def ResponseCheck(back):
 	if back.startswith('OK'):
 		tokens = back.split(' ')
 		f = urllib.urlopen(tokens[2])
+        return send_file(f)
+    else:
+        return "404 URL not found"
+
 
 @app.route('/')
 def index():
-	return redirect(url_for('static', filename='index.html'))
+	return redirect(url_for('static', filename='index.html')
 
 @app.route('/rd/<int:p>', methods=["GET"])
 def rd_getrd(p):
