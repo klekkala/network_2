@@ -56,9 +56,19 @@ def rd_addfile(p):
 	#5. Do ADDFILE <object-name> <relative-path>
 	#6. Based on the response from the routing daemon display whether the object has been successfully uploaded/added or not
 
-    obj = request.form['object']
-    f = request.files['uploadFile']
-    print f.stream.read()
+            obj = request.form['object']
+            f = request.files['uploadFile']
+            print f.stream.read()
+                 m = hashlib.sha256()
+                 m.update( f.stream.read())
+                 hasName = m.hexdigest()
+                 f.seek(0)
+                 f.save(os.path.join(UPLOAD_FOLDER, hashname))
+                 f.close()
+                 s.socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                 s.connect(('localhost', p))
+                 re = 'ADDFILE ' + str(len(obj))+' ' +str(obj)+' '+str(len(os.path.join(UPLOAD_FOLDER, HASH)))
+
 
     return "Unimplemented"
 
