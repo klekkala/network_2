@@ -11,12 +11,14 @@ app = Flask(__name__)
 
 
 def ResponseCheck(back):
-	if back.startswith('OK'):
-		tokens = back.split(' ')
-		f = urllib.urlopen(tokens[2])
+    if back.startswith('OK'):
+        tokens = back.split(' ')
+        f = urllib.urlopen(tokens[2])
         return send_file(f)
+
     else:
         return "404 URL not found"
+
 
 
 @app.route('/')
@@ -57,6 +59,7 @@ def rd_addfile(p):
     obj = request.form['object']
     f = request.files['uploadFile']
     print f.stream.read()
+
     return "Unimplemented"
 
 
