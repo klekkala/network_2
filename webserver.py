@@ -16,9 +16,8 @@ def ResponseCheck(back):
         f = urllib.urlopen(tokens[2])
         return send_file(f)
 
-    else:
+   else:
         return "404 URL not found"
-
 
 
 @app.route('/')
