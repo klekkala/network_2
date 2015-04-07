@@ -19,7 +19,6 @@ def ResponseCheck(back):
    else:
         return "404 URL not found"
 
-
 @app.route('/')
 def index():
 	return redirect(url_for('static', filename='index.html')
