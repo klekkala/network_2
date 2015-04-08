@@ -11,3 +11,18 @@ int runTimer(int timeout){
 }
 
 
+int main(){
+
+    FILE* conf;
+    FILE* file;
+    char buf[256];
+
+    routingEntry* neighbor;
+    fileEntry* Files;
+    int num;
+
+
+    //these are for ``
+}
+
+
